@@ -156,6 +156,10 @@
 
     // TODO: 1 - make it such that if any table cell is clicked, the onClick function below is executed
 
+    document.querySelectorAll("td").forEach(td => {
+      td.addEventListener("click", onClick);
+    });
+
     function onClick(ev) {
       lastSound.pause()
       lastSound.currentTime = 0;
@@ -169,9 +173,9 @@
         lastSound = clickSound
       }
 
-      console.log(`ev in onClick ${ev}`)
+      console.log(`ev in onClick ${ev}`);
       // TODO: 2 - REMOVE THE TABLE CELL THAT WAS CLICKED
-
+      ev.target.remove();
     }
   </script>
 </body>
